@@ -37,7 +37,7 @@ class CustomLLM(LLM):
             },
         )
 
-        print(response.content)
+        #print(response.content)
 
         if response.status_code != 200:
             optional_detail = response.text
@@ -60,7 +60,7 @@ class CustomLLM(LLM):
 
 
 
-llm = CustomLLM(service="openai", model="gpt-4")
+llm = CustomLLM(service="poe", model="GPT-4")
 
 result = llm("Describe Vilnius in five words or less")
 
