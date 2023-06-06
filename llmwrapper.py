@@ -50,7 +50,7 @@ class CustomLLM(LLM):
         #return response_text
         response_dict = response.json()
 
-        if response_dict["error"]:
+        if "error" in response_dict:
             raise ValueError(response_dict["error"])
 
         # langchain requires a string response
@@ -64,13 +64,15 @@ class CustomLLM(LLM):
 
 
 
-llm = CustomLLM(service="poe", model="GPT-4")
+llm = CustomLLM(service="openai", model="gpt-4")
 
-result = llm("Do you know the way to San Jose?")
+result = llm(
+'''In less than 10 words, answer the following questions:
+Do you know the way to San Jose?''')
 
 print(result)
 
-result = llm("You can really breathe in San Jase")
+result = llm("You can really breathe in San Jose")
 
 print(result)
 
