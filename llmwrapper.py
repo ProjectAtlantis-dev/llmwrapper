@@ -49,6 +49,10 @@ class CustomLLM(LLM):
         #response_text = response.text
         #return response_text
         response_dict = response.json()
+
+        if response_dict["error"]:
+            raise ValueError(response_dict["error"])
+
         # langchain requires a string response
         return response_dict["completion"]
 
@@ -62,14 +66,14 @@ class CustomLLM(LLM):
 
 llm = CustomLLM(service="poe", model="GPT-4")
 
-result = llm("Describe Vilnius in five words or less")
+result = llm("Do you know the way to San Jose?")
 
 print(result)
 
-result = llm("Describe Ventspils Latvia in five words or less")
+result = llm("You can really breathe in San Jase")
 
 print(result)
 
-result = llm("Describe Tartu in five words or less")
+result = llm("I got lots of friends in San Jose")
 
 print(result)
