@@ -150,7 +150,7 @@ class CustomChatModel(BaseChatModel):
 
 
 def testChatModel():
-    chat_model = CustomChatModel(service_name="openai", model_name="gpt-4")
+    chat_model = CustomChatModel(service_name="openai", model_name="text-davinci-002-render-sha")
     message = HumanMessage(content="describe Helsinki in 5 words or less")
     print(chat_model([message]).content)
 
