@@ -150,8 +150,9 @@ class CustomChatModel(BaseChatModel):
 
 
 def testChatModel():
-    chat_model = CustomChatModel(service_name="openai", model_name="text-davinci-002-render-sha")
-    message = HumanMessage(content="describe Helsinki in 5 words or less")
+    #chat_model = CustomChatModel(service_name="openai", model_name="text-davinci-002-render-sha")
+    chat_model = CustomChatModel(service_name="poe", model_name="Claude-instant")
+    message = HumanMessage(content="describe Sandestin FL in just 5 words or less")
     print(chat_model([message]).content)
 
 
